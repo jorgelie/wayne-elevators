@@ -51,3 +51,33 @@ services:
         class: App\Application\Commands\Movement\GetAllMovements
         arguments:
             - '@App\Infrastructure\Persistence\Doctrine\Repository\DoctrineMovementRepository'
+    app.get-all-movements-by-elevator:
+        class: App\Application\Commands\Movement\GetAllMovementsByElevator
+        arguments:
+            - '@App\Infrastructure\Persistence\Doctrine\Repository\DoctrineMovementRepository'
+    app.create-movements:
+        class: App\Application\Commands\Movement\CreateMovement
+        arguments:
+            - '@App\Infrastructure\Persistence\Doctrine\Repository\DoctrineMovementRepository'
+            - '@App\Infrastructure\Persistence\Doctrine\Repository\DoctrineFloorRepository'
+    app.get-floor-by-id:
+        class: App\Application\Commands\Floor\GetAllMovements
+        arguments:
+            - '@App\Infrastructure\Persistence\Doctrine\Repository\DoctrineFloorRepository'
+    app.get-all-elevator-calls:
+        class: App\Application\Commands\ElevatorCall\GetAllElevatorCalls
+        arguments:
+            - '@App\Infrastructure\Persistence\Doctrine\Repository\DoctrineElevatorCallRepository'
+    app.get-all-elevators:
+        class: App\Application\Commands\Elevator\GetAllElevators
+        arguments:
+            - '@App\Infrastructure\Persistence\Doctrine\Repository\DoctrineElevatorRepository'
+    app.update-elevator-position:
+        class: App\Application\Commands\Elevator\UpdateElevatorPosition
+        arguments:
+            - '@App\Infrastructure\Persistence\Doctrine\Repository\DoctrineElevatorRepository'
+    app.find-closest-elevator:
+        class: App\Application\Commands\Elevator\FindClosestElevator
+        arguments:
+            - '@App\Infrastructure\Persistence\Doctrine\Repository\DoctrineElevatorRepository'
+            - '@App\Infrastructure\Persistence\Doctrine\Repository\DoctrineFloorRepository'

@@ -7,23 +7,27 @@
     </head>
     <body>
         <h1>Elevators movements reports</h1>
-        <table class="table table-dark">
-            <thead>
-                <tr>
-                    <th>Call Time</th>
-                    <th>Elevator</th>
-                    <th>Sequence</th>
-                </tr>
-            </thead>
-            <tbody>
-                {% for movement in movements %}
+        {% if movements is empty %}
+            <h2>No movements recorded!</h2>
+        {% else %}
+            <table class="table table-dark">
+                <thead>
                     <tr>
-                        <td>{{ movement.call_time }}</td>
-                        <td>{{ movement.name }}</td>
-                        <td>{{ movement.sequence }}</td>
+                        <th>Call Time</th>
+                        <th>Elevator</th>
+                        <th>Sequence</th>
                     </tr>
-                {% endfor %}
-            </tbody>
-        </table>
+                </thead>
+                <tbody>
+                    {% for movement in movements %}
+                        <tr>
+                            <td>{{ movement.call_time }}</td>
+                            <td>{{ movement.name }}</td>
+                            <td>{{ movement.sequence }}</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        {% endif %}
     </body>
 </html>

@@ -1,0 +1,10 @@
+index:
+    path: /
+    controller: App\UI\Rest\Controller\MovementController::index
+all:
+    path: /movements/all
+    controller: App\UI\Rest\Controller\MovementController::all
+movements:
+    path: /movements/{elevator_id}
+    controller: App\UI\Rest\Controller\MovementController::findByElevator
+    methods: [GET]
